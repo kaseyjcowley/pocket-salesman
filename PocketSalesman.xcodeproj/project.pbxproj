@@ -8,20 +8,36 @@
 
 /* Begin PBXBuildFile section */
 		23007EDE20D2143C00918E65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23007EDD20D2143C00918E65 /* AppDelegate.swift */; };
-		23007EE020D2143C00918E65 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23007EDF20D2143C00918E65 /* ViewController.swift */; };
 		23007EE320D2143C00918E65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23007EE120D2143C00918E65 /* Main.storyboard */; };
 		23007EE520D2143C00918E65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23007EE420D2143C00918E65 /* Assets.xcassets */; };
 		23007EE820D2143C00918E65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23007EE620D2143C00918E65 /* LaunchScreen.storyboard */; };
+		23007EF220D21F7A00918E65 /* AccountListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23007EF120D21F7A00918E65 /* AccountListTableViewController.swift */; };
+		23007EF420D250B500918E65 /* IndividualAccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23007EF320D250B500918E65 /* IndividualAccountTableViewCell.swift */; };
+		23007EF620D345C900918E65 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23007EF520D345C900918E65 /* Account.swift */; };
+		23514E7C20F6BE86009102C2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23514E7B20F6BE86009102C2 /* Extensions.swift */; };
+		235464BC20FBD95C00DBD158 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 235464BB20FBD95C00DBD158 /* .gitignore */; };
+		23D2D63920F1891600E8476F /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D2D63820F1891600E8476F /* CircularProgressView.swift */; };
+		23E6871520EDCD2300F8C9A9 /* GroupAccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E6871420EDCD2300F8C9A9 /* GroupAccountTableViewCell.swift */; };
+		DCA84F9024083432DF0EFD5E /* Pods_PocketSalesman.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1199CB55B8B5D774B2F1E889 /* Pods_PocketSalesman.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		01E54062B4DD2BF0B8AE76CD /* Pods-PocketSalesman.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketSalesman.release.xcconfig"; path = "Pods/Target Support Files/Pods-PocketSalesman/Pods-PocketSalesman.release.xcconfig"; sourceTree = "<group>"; };
+		1199CB55B8B5D774B2F1E889 /* Pods_PocketSalesman.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PocketSalesman.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		23007EDA20D2143C00918E65 /* PocketSalesman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketSalesman.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23007EDD20D2143C00918E65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		23007EDF20D2143C00918E65 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		23007EE220D2143C00918E65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		23007EE420D2143C00918E65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		23007EE720D2143C00918E65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		23007EE920D2143C00918E65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		23007EF120D21F7A00918E65 /* AccountListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListTableViewController.swift; sourceTree = "<group>"; };
+		23007EF320D250B500918E65 /* IndividualAccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualAccountTableViewCell.swift; sourceTree = "<group>"; };
+		23007EF520D345C900918E65 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		23514E7B20F6BE86009102C2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		235464BB20FBD95C00DBD158 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		23D2D63820F1891600E8476F /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
+		23E6871420EDCD2300F8C9A9 /* GroupAccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupAccountTableViewCell.swift; sourceTree = "<group>"; };
+		8C03214F3E07132CC83CFDDE /* Pods-PocketSalesman.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketSalesman.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PocketSalesman/Pods-PocketSalesman.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCA84F9024083432DF0EFD5E /* Pods_PocketSalesman.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +57,8 @@
 			children = (
 				23007EDC20D2143C00918E65 /* PocketSalesman */,
 				23007EDB20D2143C00918E65 /* Products */,
+				4EB0A7B8C39C2491A81B6313 /* Pods */,
+				C4B77058A2C96C46F43AC1BB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +73,53 @@
 		23007EDC20D2143C00918E65 /* PocketSalesman */ = {
 			isa = PBXGroup;
 			children = (
-				23007EDD20D2143C00918E65 /* AppDelegate.swift */,
-				23007EDF20D2143C00918E65 /* ViewController.swift */,
+				235464B920FBD7F700DBD158 /* Models */,
+				235464BA20FBD82000DBD158 /* Supporting Files */,
+				23007EF120D21F7A00918E65 /* AccountListTableViewController.swift */,
+				23007EF320D250B500918E65 /* IndividualAccountTableViewCell.swift */,
+				23E6871420EDCD2300F8C9A9 /* GroupAccountTableViewCell.swift */,
+				23D2D63820F1891600E8476F /* CircularProgressView.swift */,
 				23007EE120D2143C00918E65 /* Main.storyboard */,
 				23007EE420D2143C00918E65 /* Assets.xcassets */,
-				23007EE620D2143C00918E65 /* LaunchScreen.storyboard */,
+				23514E7B20F6BE86009102C2 /* Extensions.swift */,
 				23007EE920D2143C00918E65 /* Info.plist */,
+				235464BB20FBD95C00DBD158 /* .gitignore */,
 			);
 			path = PocketSalesman;
+			sourceTree = "<group>";
+		};
+		235464B920FBD7F700DBD158 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				23007EF520D345C900918E65 /* Account.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		235464BA20FBD82000DBD158 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				23007EDD20D2143C00918E65 /* AppDelegate.swift */,
+				23007EE620D2143C00918E65 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4EB0A7B8C39C2491A81B6313 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8C03214F3E07132CC83CFDDE /* Pods-PocketSalesman.debug.xcconfig */,
+				01E54062B4DD2BF0B8AE76CD /* Pods-PocketSalesman.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C4B77058A2C96C46F43AC1BB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1199CB55B8B5D774B2F1E889 /* Pods_PocketSalesman.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +129,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 23007EEC20D2143C00918E65 /* Build configuration list for PBXNativeTarget "PocketSalesman" */;
 			buildPhases = (
+				9170519A3F5AE17FD5AE6306 /* [CP] Check Pods Manifest.lock */,
 				23007ED620D2143C00918E65 /* Sources */,
 				23007ED720D2143C00918E65 /* Frameworks */,
 				23007ED820D2143C00918E65 /* Resources */,
+				EF8D23C4C7B052E072C65E64 /* [CP] Embed Pods Frameworks */,
+				FFF92E7FF3B17E2C6C42F065 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -123,6 +184,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				235464BC20FBD95C00DBD158 /* .gitignore in Resources */,
 				23007EE820D2143C00918E65 /* LaunchScreen.storyboard in Resources */,
 				23007EE520D2143C00918E65 /* Assets.xcassets in Resources */,
 				23007EE320D2143C00918E65 /* Main.storyboard in Resources */,
@@ -131,13 +193,72 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9170519A3F5AE17FD5AE6306 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PocketSalesman-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EF8D23C4C7B052E072C65E64 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PocketSalesman/Pods-PocketSalesman-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftIcons/SwiftIcons.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftIcons.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PocketSalesman/Pods-PocketSalesman-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FFF92E7FF3B17E2C6C42F065 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PocketSalesman/Pods-PocketSalesman-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		23007ED620D2143C00918E65 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23007EE020D2143C00918E65 /* ViewController.swift in Sources */,
+				23007EF420D250B500918E65 /* IndividualAccountTableViewCell.swift in Sources */,
+				23E6871520EDCD2300F8C9A9 /* GroupAccountTableViewCell.swift in Sources */,
+				23007EF220D21F7A00918E65 /* AccountListTableViewController.swift in Sources */,
+				23514E7C20F6BE86009102C2 /* Extensions.swift in Sources */,
+				23D2D63920F1891600E8476F /* CircularProgressView.swift in Sources */,
 				23007EDE20D2143C00918E65 /* AppDelegate.swift in Sources */,
+				23007EF620D345C900918E65 /* Account.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,29 +393,37 @@
 		};
 		23007EED20D2143C00918E65 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C03214F3E07132CC83CFDDE /* Pods-PocketSalesman.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 0.1.0;
+				DEVELOPMENT_TEAM = FN3Z5STXY2;
 				INFOPLIST_FILE = PocketSalesman/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kjc.personal.PocketSalesman;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		23007EEE20D2143C00918E65 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 01E54062B4DD2BF0B8AE76CD /* Pods-PocketSalesman.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 0.1.0;
+				DEVELOPMENT_TEAM = FN3Z5STXY2;
 				INFOPLIST_FILE = PocketSalesman/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kjc.personal.PocketSalesman;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
