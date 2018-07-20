@@ -18,14 +18,14 @@ class IndividualAccountTableViewCell: UITableViewCell {
     @IBOutlet weak var iconStackView: UIStackView?
     
     @IBOutlet weak var monthlyCircularProgressView: CircularProgressView?
-    @IBOutlet weak var yearlyCircularProgressView: CircularProgressView?
+    @IBOutlet weak var annualCircularProgressView: CircularProgressView?
     
     @IBOutlet weak var monthlyProgressTotals: UILabel?
-    @IBOutlet weak var yearlyProgressTotals: UILabel?
+    @IBOutlet weak var annualProgressTotals: UILabel?
     
     let icons : [FontType] = [
         .fontAwesome(.userCircleO),
-        .fontAwesome(.barChart),
+        .fontAwesome(.tasks),
         .fontAwesome(.bellO),
         .fontAwesome(.calendarO),
     ]
@@ -35,11 +35,13 @@ class IndividualAccountTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         
         // TODO: Subclass iconStackView
-        if let iconImageViews = iconStackView?.subviews as? [UIImageView] {
-            for (index, iconImageView) in iconImageViews.enumerated() {
-                iconImageView.setIcon(
+        if let iconButtons = iconStackView?.subviews as? [UIButton] {
+            for (index, iconButton) in iconButtons.enumerated() {
+                iconButton.setIcon(
                     icon: icons[index],
-                    textColor: UIColor(red: 129/255, green: 144/255, blue: 165/255, alpha: 1)
+                    iconSize: 30,
+                    color: UIColor(red: 129/255, green: 144/255, blue: 165/255, alpha: 1),
+                    forState: .normal
                 )
             }
         }

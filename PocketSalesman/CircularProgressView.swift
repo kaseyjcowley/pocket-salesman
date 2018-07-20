@@ -18,6 +18,10 @@ class CircularProgressView: UIView {
     
     var progress: Float = 0.0 {
         didSet {
+            if oldValue == progress {
+                return
+            }
+            
             progressLayer.path = UIBezierPath(
                 arcCenter: CGPoint(x: bounds.midX, y: bounds.midY),
                 radius: frame.height / 2,
@@ -34,10 +38,16 @@ class CircularProgressView: UIView {
     
     var duration: CFTimeInterval = CircularProgressView.DEFAULT_ANIMATION_DURATION {
         didSet {
+            if oldValue == duration {
+                return
+            }
+            
             animation.duration = duration
             resetAnimation()
         }
     }
+    
+    fileprivate var didAnimate = false
     
     fileprivate static let DEFAULT_ANIMATION_DURATION = 2.0
     fileprivate static let ANIMATION_KEY = "circularProgressAnimation"
