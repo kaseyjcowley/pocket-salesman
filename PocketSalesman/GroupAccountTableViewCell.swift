@@ -12,12 +12,13 @@ class GroupAccountTableViewCell: UITableViewCell {
 
     @IBOutlet weak var avatar: UIImageView?
     @IBOutlet weak var customerName: UILabel?
-    @IBOutlet weak var disclosureIndicator: UIImageView!
+    @IBOutlet weak var disclosureIndicator: UIImageView?
+    @IBOutlet weak var groupCountBadge: UILabel?
     
     static let rowHeight: CGFloat = 96
     
     override func awakeFromNib() {
-        disclosureIndicator.setIcon(icon: .ionicons(.iosArrowForward))
+        disclosureIndicator?.setIcon(icon: .ionicons(.iosArrowForward))
     }
     
 }

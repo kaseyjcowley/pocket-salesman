@@ -37,6 +37,16 @@ extension Int {
     
 }
 
+extension Double {
+    
+    func withCommas() -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = NumberFormatter.Style.decimal
+        return numberFormatter.string(from: NSNumber(value: self))!
+    }
+    
+}
+
 protocol Applyable {}
 
 extension Applyable {
@@ -51,3 +61,9 @@ extension Applyable {
 
 extension UIView: Applyable {}
 extension UIViewController: Applyable {}
+
+extension UITextField {
+    var isEmpty: Bool {
+        return text?.isEmpty ?? true
+    }
+}

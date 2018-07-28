@@ -9,8 +9,8 @@
 import Foundation
 
 enum AccountType: String {
-    case Individual
-    case Group
+    case individual
+    case group
     
     func toString() -> String {
         return self.rawValue
@@ -18,13 +18,44 @@ enum AccountType: String {
 }
 
 class Account {
-    var name: String
-    var contactName: String?
-    var accountType: AccountType = .Individual
+    var contact: Contact
+    var supervisor: Supervisor
     
-    init(name: String, contactName: String, accountType: AccountType = .Individual) {
-        self.name = name
-        self.contactName = contactName
-        self.accountType = accountType
+    struct Contact {
+        var name: String
+        var phone: String
+        var fax: String
+        var email: String
+        var address: String
+        var city: String
+        var state: String
+        var zip: String
+        var notes: String
     }
+    
+    struct Supervisor {
+        var name: String
+        var phone: String
+        var email:   String
+    }
+    
+    var monthlySales: (Double, Double) = (0.0, 0.0)
+    var annualSales: (Double, Double) = (0.0, 0.0)
+    
+//    var numberOfAccounts: Int = 0
+    
+    var type: AccountType = .individual
+    
+    init(contact: Contact, supervisor: Supervisor, monthlySales: (Double, Double), annualSales: (Double, Double)) {
+        self.contact = contact
+        self.supervisor = supervisor
+        self.monthlySales = monthlySales
+        self.annualSales = annualSales
+    }
+    
+//    init(name: String, numberOfAccounts: Int) {
+//        self.name = name
+//        self.numberOfAccounts = numberOfAccounts
+//        self.type = .group
+//    }
 }

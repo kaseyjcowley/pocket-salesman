@@ -24,10 +24,10 @@ class IndividualAccountTableViewCell: UITableViewCell {
     @IBOutlet weak var annualProgressTotals: UILabel?
     
     let icons : [FontType] = [
-        .fontAwesome(.userCircleO),
-        .fontAwesome(.tasks),
-        .fontAwesome(.bellO),
-        .fontAwesome(.calendarO),
+        .dripicon(.user),
+        .dripicon(.checklist),
+        .dripicon(.bell),
+        .dripicon(.calendar),
     ]
     
     static let rowHeight: CGFloat = 250
@@ -39,7 +39,7 @@ class IndividualAccountTableViewCell: UITableViewCell {
             for (index, iconButton) in iconButtons.enumerated() {
                 iconButton.setIcon(
                     icon: icons[index],
-                    iconSize: 30,
+                    iconSize: 24,
                     color: UIColor(red: 129/255, green: 144/255, blue: 165/255, alpha: 1),
                     forState: .normal
                 )

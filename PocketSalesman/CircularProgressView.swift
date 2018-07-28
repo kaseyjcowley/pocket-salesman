@@ -10,17 +10,14 @@ import UIKit
 
 class CircularProgressView: UIView {
     
-    var color: UIColor = UIColor.clear {
+    var ratio: (Double, Double) = (0.0, 0.0) {
         didSet {
-            progressLayer.strokeColor = color.cgColor
-        }
-    }
-    
-    var progress: Float = 0.0 {
-        didSet {
-            if oldValue == progress {
+            if oldValue == ratio {
                 return
             }
+            
+            let (numerator, denominator) = ratio
+            let progress = numerator / denominator
             
             progressLayer.path = UIBezierPath(
                 arcCenter: CGPoint(x: bounds.midX, y: bounds.midY),
@@ -28,11 +25,25 @@ class CircularProgressView: UIView {
                 startAngle: degreesToRadians(0),
                 endAngle: degreesToRadians(progress * 360),
                 clockwise: true
-            ).cgPath
+                ).cgPath
             
             resetAnimation()
-    
+            
             progressLabel.text = "\(Int(progress*100))%"
+            
+            if progress >= 0 && progress <= 0.25 {
+                color = UIColor.Custom.danger
+            } else if progress > 0.25 && progress <= 0.75 {
+                color = UIColor.Custom.warning
+            } else if progress > 0.75 {
+                color = UIColor.Custom.success
+            }
+        }
+    }
+    
+    var color: UIColor = UIColor.clear {
+        didSet {
+            progressLayer.strokeColor = color.cgColor
         }
     }
     
@@ -46,8 +57,6 @@ class CircularProgressView: UIView {
             resetAnimation()
         }
     }
-    
-    fileprivate var didAnimate = false
     
     fileprivate static let DEFAULT_ANIMATION_DURATION = 2.0
     fileprivate static let ANIMATION_KEY = "circularProgressAnimation"
@@ -110,7 +119,7 @@ class CircularProgressView: UIView {
     }
 
     // NOTE: Because UIBezierPaths start drawing at the 90° mark, we have to subtract 90° to make the drawing start at the top of the circle.
-    fileprivate func degreesToRadians(_ degrees: Float) -> CGFloat {
+    fileprivate func degreesToRadians(_ degrees: Double) -> CGFloat {
         return CGFloat(degrees - 90) * CGFloat.pi / 180
     }
     

@@ -1,0 +1,18 @@
+PODS:
+  - Eureka (4.0.1)
+  - SkyFloatingLabelTextField (3.4.0)
+  - SwiftIcons (2.0.1)
+
+DEPENDENCIES:
+  - Eureka (~> 4.0)
+  - SkyFloatingLabelTextField (~> 3.0)
+  - SwiftIcons (~> 2.0.1)
+
+SPEC CHECKSUMS:
+  Eureka: c8bd5cc07143b6f66268c208d28a246c99b41955
+  SkyFloatingLabelTextField: 703aa1420b697392b1e7dba25571180dde018477
+  SwiftIcons: e475a56ae2c2da40672dbf16061ca5dd5cee7dbb
+
+PODFILE CHECKSUM: e852a4853453909c2b72faa0a02f7d1674738191
+
+COCOAPODS: 1.4.0
