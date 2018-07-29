@@ -8,7 +8,5 @@ target 'PocketSalesman' do
   # Pods for PocketSalesman
   pod 'SwiftIcons', '~> 2.0.1'
   pod 'SkyFloatingLabelTextField', '~> 3.0'
-  pod 'Eureka', '~> 4.1'
-
 
 end

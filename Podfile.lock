@@ -1,24 +1,20 @@
 PODS:
-  - Eureka (4.2.0)
   - SkyFloatingLabelTextField (3.5.1)
   - SwiftIcons (2.0.1)
 
 DEPENDENCIES:
-  - Eureka (~> 4.1)
   - SkyFloatingLabelTextField (~> 3.0)
   - SwiftIcons (~> 2.0.1)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - Eureka
     - SkyFloatingLabelTextField
     - SwiftIcons
 
 SPEC CHECKSUMS:
-  Eureka: 0748c7bbb2560130e43c7bfa83e99c98854a1f42
   SkyFloatingLabelTextField: 4cbeece9c3aae97c6019d8fae511cb5b755874f7
   SwiftIcons: e475a56ae2c2da40672dbf16061ca5dd5cee7dbb
 
-PODFILE CHECKSUM: 8bb79032c66f461a44850beb15f1a53f0f2f48bb
+PODFILE CHECKSUM: fcec7bd58db39c011e21d3c18b188c6e274361a8
 
 COCOAPODS: 1.5.3
