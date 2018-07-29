@@ -69,3 +69,7 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
+
+Pods/
+*.xcodeproj/project.xcworkspace/xcshareddata/
+*.xcworkspace/
