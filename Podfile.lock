@@ -1,20 +1,33 @@
 PODS:
-  - SkyFloatingLabelTextField (3.5.1)
+  - Eureka (4.2.0)
+  - FloatLabelRow (1.0.0):
+    - Eureka (>= 3.0)
   - SwiftIcons (2.0.1)
 
 DEPENDENCIES:
-  - SkyFloatingLabelTextField (~> 3.0)
+  - Eureka
+  - FloatLabelRow (from `https://github.com/kaseyjcowley/FloatLabelRow.git`)
   - SwiftIcons (~> 2.0.1)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - SkyFloatingLabelTextField
+    - Eureka
     - SwiftIcons
 
+EXTERNAL SOURCES:
+  FloatLabelRow:
+    :git: https://github.com/kaseyjcowley/FloatLabelRow.git
+
+CHECKOUT OPTIONS:
+  FloatLabelRow:
+    :commit: c734d949728e64471d97578d155e277e91f0ebdd
+    :git: https://github.com/kaseyjcowley/FloatLabelRow.git
+
 SPEC CHECKSUMS:
-  SkyFloatingLabelTextField: 4cbeece9c3aae97c6019d8fae511cb5b755874f7
+  Eureka: 0748c7bbb2560130e43c7bfa83e99c98854a1f42
+  FloatLabelRow: 3c512fc96bf24acc534100b2dfa0c670ff71ed45
   SwiftIcons: e475a56ae2c2da40672dbf16061ca5dd5cee7dbb
 
-PODFILE CHECKSUM: fcec7bd58db39c011e21d3c18b188c6e274361a8
+PODFILE CHECKSUM: 7eeb26dcd7bfb22764f08295dd490e7a4e080ee5
 
 COCOAPODS: 1.5.3

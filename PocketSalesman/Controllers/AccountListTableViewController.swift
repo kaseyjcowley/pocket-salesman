@@ -67,10 +67,15 @@ class AccountListTableViewController: UITableViewController {
         switch account.type {
             case .individual:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "IndividualAccountCell") as! IndividualAccountTableViewCell
-                cell.customerName?.text = account.contact.name
+                cell.customerName?.text = account.name
                 
                 if let avatar = cell.avatar {
-                    avatar.image = UIImage(named: "Avatar")
+                    if let image = account.avatar {
+                        avatar.image = UIImage(data: image)
+                    } else {
+                        avatar.image = UIImage(named: "Avatar")
+                    }
+                    
                     avatar.layer.masksToBounds = true
                     avatar.layer.cornerRadius = avatar.bounds.size.height / 2
                 }
@@ -94,7 +99,7 @@ class AccountListTableViewController: UITableViewController {
             case .group:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "GroupAccountCell") as! GroupAccountTableViewCell
                 
-                cell.customerName?.text = account.contact.name
+                cell.customerName?.text = account.name
 //                cell.groupCountBadge?.text = String(account.numberOfAccounts)
                 
                 if let avatar = cell.avatar {
@@ -179,7 +184,7 @@ extension AccountListTableViewController: UISearchResultsUpdating, UISearchBarDe
     
 }
 
-extension AccountListTableViewController: ReceivesAccountData {
+extension AccountListTableViewController: ReceivesAccountDataDelegate {
     
     func receive(account: Account) {
         filteredAccounts.append(account)
@@ -199,6 +204,6 @@ extension AccountListTableViewController: ReceivesAccountData {
     
 }
 
-protocol ReceivesAccountData {
+protocol ReceivesAccountDataDelegate: class {
     func receive(account: Account)
 }

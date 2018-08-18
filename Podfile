@@ -7,6 +7,6 @@ target 'PocketSalesman' do
 
   # Pods for PocketSalesman
   pod 'SwiftIcons', '~> 2.0.1'
-  pod 'SkyFloatingLabelTextField', '~> 3.0'
-
+  pod 'Eureka'
+  pod 'FloatLabelRow', :git => 'https://github.com/kaseyjcowley/FloatLabelRow.git'
 end

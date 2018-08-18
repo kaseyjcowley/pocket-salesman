@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SwiftIcons
 
 extension UIColor {
     
@@ -23,6 +24,10 @@ extension UIColor {
         static let success = UIColor.init(hex: 0x5fdd9d)
         static let warning = UIColor.init(hex: 0xf7ee7f)
         static let danger = UIColor.init(hex: 0xef767a)
+    }
+    
+    struct Theme {
+        static let primaryBlue = UIColor.init(hex: 0x24b0fc)
     }
     
 }
@@ -65,5 +70,25 @@ extension UIViewController: Applyable {}
 extension UITextField {
     var isEmpty: Bool {
         return text?.isEmpty ?? true
+    }
+}
+
+extension Dictionary {
+    public func map<T: Hashable, U>(transform: (Key, Value) -> (T, U)) -> [T: U] {
+        var result: [T: U] = [:]
+        for (key, value) in self {
+            let (transformedKey, transformedValue) = transform(key, value)
+            result[transformedKey] = transformedValue
+        }
+        return result
+    }
+    
+    public func map<T: Hashable, U>(transform: (Key, Value) throws -> (T, U)) rethrows -> [T: U] {
+        var result: [T: U] = [:]
+        for (key, value) in self {
+            let (transformedKey, transformedValue) = try transform(key, value)
+            result[transformedKey] = transformedValue
+        }
+        return result
     }
 }
