@@ -19,6 +19,7 @@
 		23514E7C20F6BE86009102C2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23514E7B20F6BE86009102C2 /* Extensions.swift */; };
 		235F0641210E1D8A009EDDD5 /* FloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F0640210E1D8A009EDDD5 /* FloatingLabelTextField.swift */; };
 		23D2D63920F1891600E8476F /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D2D63820F1891600E8476F /* CircularProgressView.swift */; };
+		23D2FBD22131034C00593B50 /* EmailCompletionSuggestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D2FBD12131034C00593B50 /* EmailCompletionSuggestionsView.swift */; };
 		23E6871520EDCD2300F8C9A9 /* GroupAccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E6871420EDCD2300F8C9A9 /* GroupAccountTableViewCell.swift */; };
 		DCA84F9024083432DF0EFD5E /* Pods_PocketSalesman.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1199CB55B8B5D774B2F1E889 /* Pods_PocketSalesman.framework */; };
 /* End PBXBuildFile section */
@@ -40,6 +41,7 @@
 		23514E7B20F6BE86009102C2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		235F0640210E1D8A009EDDD5 /* FloatingLabelTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingLabelTextField.swift; sourceTree = "<group>"; };
 		23D2D63820F1891600E8476F /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
+		23D2FBD12131034C00593B50 /* EmailCompletionSuggestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailCompletionSuggestionsView.swift; sourceTree = "<group>"; };
 		23E6871420EDCD2300F8C9A9 /* GroupAccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupAccountTableViewCell.swift; sourceTree = "<group>"; };
 		8C03214F3E07132CC83CFDDE /* Pods-PocketSalesman.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketSalesman.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PocketSalesman/Pods-PocketSalesman.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,6 +86,7 @@
 				23E6871420EDCD2300F8C9A9 /* GroupAccountTableViewCell.swift */,
 				23D2D63820F1891600E8476F /* CircularProgressView.swift */,
 				235F0640210E1D8A009EDDD5 /* FloatingLabelTextField.swift */,
+				23D2FBD12131034C00593B50 /* EmailCompletionSuggestionsView.swift */,
 				23007EE120D2143C00918E65 /* Main.storyboard */,
 				23007EE420D2143C00918E65 /* Assets.xcassets */,
 				23514E7B20F6BE86009102C2 /* Extensions.swift */,
@@ -112,8 +115,8 @@
 		23CA424B210B603D00CC27BF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				23415CD921043576009147ED /* AddAccountViewController.swift */,
 				23007EF120D21F7A00918E65 /* AccountListTableViewController.swift */,
+				23415CD921043576009147ED /* AddAccountViewController.swift */,
 				232A634A210B5CCF00EDDDF0 /* AccountFormViewController.swift */,
 			);
 			path = Controllers;
@@ -254,6 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				232A634B210B5CCF00EDDDF0 /* AccountFormViewController.swift in Sources */,
+				23D2FBD22131034C00593B50 /* EmailCompletionSuggestionsView.swift in Sources */,
 				23007EF420D250B500918E65 /* IndividualAccountTableViewCell.swift in Sources */,
 				23E6871520EDCD2300F8C9A9 /* GroupAccountTableViewCell.swift in Sources */,
 				23007EF220D21F7A00918E65 /* AccountListTableViewController.swift in Sources */,

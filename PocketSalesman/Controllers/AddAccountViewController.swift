@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftIcons
+import ContactsUI
 
 class AddAccountViewController: UIViewController {
 
@@ -25,7 +26,7 @@ class AddAccountViewController: UIViewController {
     }
     
     @IBAction func saveAccount(_ sender: Any) {
-        guard let accountFormVC = childViewControllers.first as? AccountFormViewController else {return}
+        guard let accountFormVC = getAccountFormViewController() else {return}
 
         let accountValues = accountFormVC.formValues(forTagType: .account)
         let contactValues = accountFormVC.formValues(forTagType: .contact)
@@ -53,6 +54,15 @@ class AddAccountViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    func getAccountFormViewController() -> AccountFormViewController? {
+        return childViewControllers.first as? AccountFormViewController
+    }
+    
+}
+
+// Handle editing the profile photo by an action sheet
+extension AddAccountViewController {
+    
     @IBAction func editPhotoButtonTapped(_ sender: UIButton) {
         let actionSheet = UIAlertController(title: "Add a Photo", message: nil, preferredStyle: .actionSheet)
         
@@ -63,7 +73,7 @@ class AddAccountViewController: UIViewController {
         actionSheet.addAction(UIAlertAction(title: "From Photo Library", style: .default, handler: {(alert) -> Void in
             self.openPhotoLibrary()
         }))
-      
+        
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         present(actionSheet, animated: true, completion: nil)
@@ -85,6 +95,7 @@ class AddAccountViewController: UIViewController {
     
 }
 
+// Handle a selected/taken photo
 extension AddAccountViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -93,6 +104,43 @@ extension AddAccountViewController: UIImagePickerControllerDelegate, UINavigatio
         }
         
         imagePickerController.dismiss(animated: true, completion: nil)
+    }
+    
+}
+
+// Handle importing a contact
+extension AddAccountViewController: CNContactPickerDelegate {
+    
+    @IBAction func importContact(_ sender: Any) {
+        let contactPicker = CNContactPickerViewController()
+        contactPicker.delegate = self
+        present(contactPicker, animated: true, completion: nil)
+    }
+    
+    func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
+        guard let accountFormVC = getAccountFormViewController() else {return}
+        
+        if let imageData = contact.imageData, contact.imageDataAvailable {
+            avatar?.image = UIImage(data: imageData)
+        }
+        
+        let postalAddress = contact.postalAddresses.first?.value
+        
+        accountFormVC.form.setValues([
+            FormTags.Account.name: contact.organizationName,
+            
+            FormTags.Contact.name: contact.givenName + " " + contact.familyName,
+            FormTags.Contact.phone: (contact.phoneNumbers.first?.value)?.value(forKey: "digits") as? String,
+            FormTags.Contact.email: contact.emailAddresses.first?.value,
+            FormTags.Contact.address: postalAddress?.street,
+            FormTags.Contact.city: postalAddress?.city,
+            FormTags.Contact.state: postalAddress?.state,
+            FormTags.Contact.zip: postalAddress?.postalCode,
+            
+            FormTags.Miscellaneous.notes: contact.note,
+        ])
+        
+        accountFormVC.tableView.reloadData()
     }
     
 }

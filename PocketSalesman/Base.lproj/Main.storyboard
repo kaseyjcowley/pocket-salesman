@@ -8,6 +8,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -485,11 +486,18 @@
                         <viewLayoutGuide key="safeArea" id="lNE-h8-Duq"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Account" id="WvT-h5-qt1">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="ZXb-DS-MiW">
-                            <connections>
-                                <action selector="saveAccount:" destination="vCb-cl-Tj9" id="bZ7-a1-iZS"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Save" id="ZXb-DS-MiW">
+                                <connections>
+                                    <action selector="saveAccount:" destination="vCb-cl-Tj9" id="bZ7-a1-iZS"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="organize" id="pm7-29-NpW">
+                                <connections>
+                                    <action selector="importContact:" destination="vCb-cl-Tj9" id="86K-Xe-S45"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="avatar" destination="Vjt-XO-mfg" id="qxj-a9-8s4"/>
