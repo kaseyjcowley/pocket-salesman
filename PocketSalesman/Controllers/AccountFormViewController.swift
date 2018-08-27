@@ -40,6 +40,8 @@ struct FormTags {
     }
     
     struct Miscellaneous {
+        static let monthlyGoal = "\(TagType.misc).monthlyGoal"
+        static let annualGoal = "\(TagType.misc).annualGoal"
         static let notes = "\(TagType.misc).notes"
     }
 }
@@ -56,6 +58,7 @@ class AccountFormViewController: FormViewController {
         PhoneFloatLabelRow.defaultOnRowValidationChanged = self.defaultOnRowValidationChanged
         EmailFloatLabelRow.defaultOnRowValidationChanged = self.defaultOnRowValidationChanged
         ZipCodeFloatLabelRow.defaultOnRowValidationChanged = self.defaultOnRowValidationChanged
+        DecimalFloatLabelRow.defaultOnRowValidationChanged = self.defaultOnRowValidationChanged
         
         EmailFloatLabelRow.defaultOnCellHighlightChanged = { (cell, row) in
             if row.isHighlighted {
@@ -70,20 +73,22 @@ class AccountFormViewController: FormViewController {
                 self.emailCompletionSuggestionsView.removeFromSuperview()
             }
         }
-    }
-    
-    private func completeEmail(with suggestion: String, for row: EmailFloatLabelRow) {
-        if let currentValue: String = row.value {
-            row.cell.textField.text = currentValue + suggestion
+        
+        PhoneFloatLabelRow.defaultCellSetup = { (cell, row) in
+            cell.textField.addTarget(self, action: #selector(self.stripNonNumericCharacters), for: .editingChanged)
+            row.useFormatterDuringInput = true
+            row.formatter = PhoneNumberFormatter()
         }
     }
     
+    // MARK: Public API
     public func formValues(forTagType tagType: FormTags.TagType) -> [String:Any?] {
         return form.values()
             .filter({$0.key.starts(with: tagType.rawValue)})
             .map(transform: {($0.replacingOccurrences(of: "\(tagType.rawValue).", with: ""), $1)})
     }
     
+    // MARK: Sections
     private func accountSection() -> Section {
         var section = Section("Account")
         
@@ -104,12 +109,16 @@ class AccountFormViewController: FormViewController {
             TextFloatLabelRow(FormTags.Contact.name, {
                 $0.title = "Name*"
             }),
+            
             PhoneFloatLabelRow(FormTags.Contact.phone, {
                 $0.title = "Phone*"
+                $0.add(rule: RuleExactLength(exactLength: 10, msg: "Phone numbers must be 10 digits long", id: nil))
             }),
+            
             PhoneFloatLabelRow(FormTags.Contact.fax, {
                 $0.title = "Fax"
-            }),
+            }).onChange(self.maybeAddExactLengthRule),
+            
             EmailFloatLabelRow(FormTags.Contact.email, {
                 $0.title = "Email*"
                 $0.add(rule: RuleEmail())
@@ -120,16 +129,20 @@ class AccountFormViewController: FormViewController {
                     self.emailCompletionSuggestionsView.isHidden = true
                 }
             }),
+            
             TextFloatLabelRow(FormTags.Contact.address, {
                 $0.title = "Address*"
             }),
+            
             TextFloatLabelRow(FormTags.Contact.city, {
                 $0.title = "City*"
             }),
+            
             PickerInlineRow<String>(FormTags.Contact.state, {
                 $0.title = "State*"
                 $0.options = ["AZ", "CA", "UT"]
             }),
+            
             ZipCodeFloatLabelRow(FormTags.Contact.zip, {
                 $0.title = "Zip Code*"
             }),
@@ -151,9 +164,11 @@ class AccountFormViewController: FormViewController {
             TextFloatLabelRow(FormTags.Supervisor.name, {
                 $0.title = "Name"
             }),
+            
             PhoneFloatLabelRow(FormTags.Supervisor.phone, {
                 $0.title = "Phone"
-            }),
+            }).onChange(self.maybeAddExactLengthRule),
+            
             EmailFloatLabelRow(FormTags.Supervisor.email, {
                 $0.title = "Email"
                 $0.add(rule: RuleEmail())
@@ -172,7 +187,25 @@ class AccountFormViewController: FormViewController {
     private func miscSection() -> Section {
         var section = Section("Miscellaneous")
         
+        let formatter = CurrencyFormatter()
+        formatter.locale = NSLocale.current
+        formatter.numberStyle = NumberFormatter.Style.currency
+        
         section += [
+            DecimalFloatLabelRow(FormTags.Miscellaneous.monthlyGoal, {
+                $0.useFormatterDuringInput = true
+                $0.title = "Monthly Sales Goal*"
+                $0.formatter = formatter
+                $0.add(rule: RuleRequired())
+            }),
+            
+            DecimalFloatLabelRow(FormTags.Miscellaneous.annualGoal, {
+                $0.useFormatterDuringInput = true
+                $0.title = "Annual Sales Goal*"
+                $0.formatter = formatter
+                $0.add(rule: RuleRequired())
+            }),
+            
             TextAreaRow(FormTags.Miscellaneous.notes, {
                 $0.placeholder = "Notes"
             })
@@ -181,6 +214,7 @@ class AccountFormViewController: FormViewController {
         return section
     }
     
+    // MARK: Helpers
     private func defaultOnRowValidationChanged(cell: BaseCell, row: BaseRow) {
         let rowIndex = row.indexPath!.row
         
@@ -205,6 +239,14 @@ class AccountFormViewController: FormViewController {
         }
     }
     
+    private func maybeAddExactLengthRule(row: PhoneFloatLabelRow) {
+        row.removeAllRules()
+        
+        if !row.value!.isEmpty {
+            row.add(rule: RuleExactLength(exactLength: 10, msg: "Phone numbers must be 10 digits long", id: nil))
+        }
+    }
+    
     private func setTextErrorState(_ cell: BaseCell, _ isRowValid: Bool) {
         let textColor: UIColor = isRowValid ? .black : .red
         
@@ -214,6 +256,16 @@ class AccountFormViewController: FormViewController {
         case is EmailFloatLabelCell:
             (cell as? EmailFloatLabelCell)?.textField.textColor = textColor
         default: break
+        }
+    }
+    
+    @objc private func stripNonNumericCharacters(textField: UITextField) {
+        textField.text = textField.text?.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
+    }
+    
+    private func completeEmail(with suggestion: String, for row: EmailFloatLabelRow) {
+        if let currentValue: String = row.value {
+            row.cell.textField.text = currentValue + suggestion
         }
     }
 

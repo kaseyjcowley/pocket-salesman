@@ -20,7 +20,7 @@ enum AccountType: String {
 class Account {
     var avatar: Data?
     var name: String
-    var notes: String
+    var notes: String?
     
     var contact: Contact
     var supervisor: Supervisor
@@ -28,7 +28,7 @@ class Account {
     struct Contact {
         var name: String
         var phone: String
-        var fax: String
+        var fax: String?
         var email: String
         var address: String
         var city: String
@@ -38,7 +38,7 @@ class Account {
         init(values: [String:String]) {
             self.name    = values["name"]!
             self.phone   = values["phone"]!
-            self.fax     = values["fax"]!
+            self.fax     = values["fax"]
             self.email   = values["email"]!
             self.address = values["address"]!
             self.city    = values["city"]!
@@ -48,14 +48,14 @@ class Account {
     }
     
     struct Supervisor {
-        var name: String
-        var phone: String
-        var email: String
+        var name: String?
+        var phone: String?
+        var email: String?
         
         init(values: [String:String]) {
-            self.name  = values["name"]!
-            self.phone = values["phone"]!
-            self.email = values["email"]!
+            self.name  = values["name"]
+            self.phone = values["phone"]
+            self.email = values["email"]
         }
     }
     

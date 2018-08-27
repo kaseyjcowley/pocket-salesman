@@ -27,14 +27,23 @@ class AddAccountViewController: UIViewController {
     
     @IBAction func saveAccount(_ sender: Any) {
         guard let accountFormVC = getAccountFormViewController() else {return}
+        guard accountFormVC.form.validate().count == 0 else {return} // Show something useful?
 
         let accountValues = accountFormVC.formValues(forTagType: .account)
-        let contactValues = accountFormVC.formValues(forTagType: .contact)
-        let supervisorValues = accountFormVC.formValues(forTagType: .supervisor)
         let miscValues = accountFormVC.formValues(forTagType: .misc)
         
-        let contact = Account.Contact(values: contactValues as! [String:String])
-        let supervisor = Account.Supervisor(values: supervisorValues as! [String:String])
+        var contactValues = [String:String]()
+        for (key, value) in accountFormVC.formValues(forTagType: .contact) {
+            contactValues[key] = value as? String
+        }
+        
+        var supervisorValues = [String:String]()
+        for (key, value) in accountFormVC.formValues(forTagType: .contact) {
+            supervisorValues[key] = value as? String
+        }
+        
+        let contact = Account.Contact(values: contactValues)
+        let supervisor = Account.Supervisor(values: supervisorValues)
         
         let avatarImageData: Data? = avatar?.image !== nil
             ? UIImagePNGRepresentation((avatar?.image)!)
@@ -46,8 +55,8 @@ class AddAccountViewController: UIViewController {
             contact: contact,
             supervisor: supervisor,
             notes: miscValues["notes"] as! String,
-            monthlySales: (100, 199),
-            annualSales: (200, 201)
+            monthlySales: (0, miscValues["monthlyGoal"] as! Double),
+            annualSales: (0, miscValues["annualGoal"] as! Double)
         )
         
         delegate?.receive(account: account)
