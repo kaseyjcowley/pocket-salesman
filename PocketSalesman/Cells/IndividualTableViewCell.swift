@@ -9,10 +9,10 @@
 import UIKit
 import SwiftIcons
 
-class IndividualAccountTableViewCell: UITableViewCell {
+class IndividualTableViewCell: UITableViewCell {
     
     @IBOutlet weak var avatar: UIImageView?
-    @IBOutlet weak var customerName: UILabel?
+    @IBOutlet weak var accountName: UILabel?
     
     @IBOutlet weak var iconsContainer: UIView?
     @IBOutlet weak var iconStackView: UIStackView?

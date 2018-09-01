@@ -11,17 +11,15 @@ import UIKit
 
 class AccountListTableViewController: UITableViewController {
     
-    var filteredAccounts: [Account] = [Account]()
-    var accounts: [Account] = [Account]()
+    // TODO: Consolidate this to one?
+    var filteredAccounts: [BaseAccount] = [BaseAccount]()
+    var accounts: [BaseAccount] = [BaseAccount]()
     
     let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        filteredAccounts = accounts.sorted(by: {$0.contact.name < $1.contact.name})
-        
-        // Setup search controller to filter results
         searchController.apply {
             $0.searchResultsUpdater = self
             $0.obscuresBackgroundDuringPresentation = false
@@ -61,66 +59,91 @@ class AccountListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let account = filteredAccounts[indexPath.row]
+        let current = filteredAccounts[indexPath.row]
         
-        // TODO - Refactor this into something more sane
-        switch account.type {
-            case .individual:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "IndividualAccountCell") as! IndividualAccountTableViewCell
-                cell.customerName?.text = account.name
+        switch current {
+            case is Account:
+                let account = current as! Account
+                let cell = tableView.dequeueReusableCell(withIdentifier: "IndividualAccountCell") as! IndividualTableViewCell
                 
-                if let avatar = cell.avatar {
-                    if let image = account.avatar {
-                        avatar.image = UIImage(data: image)
-                    } else {
-                        avatar.image = UIImage(named: "Avatar")
-                    }
-                    
-                    avatar.layer.masksToBounds = true
-                    avatar.layer.cornerRadius = avatar.bounds.size.height / 2
-                }
+                cell.accountName?.text = account.name
+                cell.avatar = createAvatar(from: account.avatar)
                 
-                cell.monthlyCircularProgressView?.color = UIColor.Custom.warning
-                cell.monthlyCircularProgressView?.ratio = account.monthlySales
-                
-                // TODO - Make this easier to format
                 let (mActual, mGoal) = account.monthlySales
+                
+                cell.monthlyCircularProgressView?.color = getColor(forGoalProgress: mActual / mGoal)
+                cell.monthlyCircularProgressView?.ratio = account.monthlySales
                 cell.monthlyProgressTotals?.text = "$\(mActual.withCommas()) / $\(mGoal.withCommas())"
                 
-                cell.annualCircularProgressView?.color = UIColor.Custom.success
-                cell.annualCircularProgressView?.ratio = account.annualSales
-                
-                // TODO - Make this easier to format
                 let (aActual, aGoal) = account.annualSales
+                
+                cell.annualCircularProgressView?.color = getColor(forGoalProgress: aActual / aGoal)
+                cell.annualCircularProgressView?.ratio = account.annualSales
                 cell.annualProgressTotals?.text = "$\(aActual.withCommas()) / $\(aGoal.withCommas())"
                 
                 return cell
             
-            case .group:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "GroupAccountCell") as! GroupAccountTableViewCell
+            case is Organization:
+                let account = current as! Organization
+                let cell = tableView.dequeueReusableCell(withIdentifier: "OrganizationAccountCell") as! OrganizationTableViewCell
                 
                 cell.customerName?.text = account.name
-//                cell.groupCountBadge?.text = String(account.numberOfAccounts)
-                
-                if let avatar = cell.avatar {
-                    avatar.image = UIImage(named: "Avatar")
-                    avatar.layer.masksToBounds = true
-                    avatar.layer.cornerRadius = avatar.bounds.size.height / 2
-                }
+                cell.totalAccountsBadge?.text = String(account.accounts.count)
+                cell.avatar = createAvatar(from: account.avatar)
                 
                 return cell
+
+            default: break
         }
+        
+        // TODO: This should never happen. How can we tell if it did?
+        return UITableViewCell()
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let account = filteredAccounts[indexPath.row]
         
-        switch account.type {
-        case .group:
-            return GroupAccountTableViewCell.rowHeight
-        case .individual:
-            return IndividualAccountTableViewCell.rowHeight
+        switch account {
+        case is Organization:
+            return OrganizationTableViewCell.rowHeight
+        case is Account:
+            return IndividualTableViewCell.rowHeight
+        default:
+            return UITableViewAutomaticDimension
         }
+    }
+    
+    /** Set an avatar on a tableView cell */
+    private func createAvatar(from data: Data?) -> UIImageView? {
+        let avatar = UIImageView()
+        
+        if data != nil {
+            avatar.image = UIImage(data: data!)
+        } else {
+            avatar.image = #imageLiteral(resourceName: "Avatar")
+        }
+        
+        avatar.layer.masksToBounds = true
+        avatar.layer.cornerRadius = avatar.bounds.size.height / 2
+        
+        return avatar
+    }
+    
+    /** Get a color representing how well the account's sales progress is going */
+    private func getColor(forGoalProgress progress: Double) -> UIColor {
+        if progress >= 75 {
+            return UIColor.Custom.success
+        } else if progress > 25 && progress < 75 {
+            return UIColor.Custom.warning
+        } else {
+            return UIColor.Custom.danger
+        }
+    }
+    
+    private func sortedAccounts(by criteria: SortableCriteria) -> [BaseAccount] {
+        return filteredAccounts.sorted(by: { (a1, a2) in
+            return a1.name < a2.name
+        })
     }
 
 }
@@ -128,8 +151,7 @@ class AccountListTableViewController: UITableViewController {
 // Extension to handle IBActions
 extension AccountListTableViewController {
  
-    // MARK: - IBActions
-    @IBAction func addNewCustomer(_ sender: UIBarButtonItem) {
+    @IBAction func addNewAccount(_ sender: UIBarButtonItem) {
         let actionSheet = UIAlertController(title: "Create an account", message: "What type of account?", preferredStyle: .actionSheet)
         
         actionSheet.addAction(UIAlertAction(title: "Individual", style: .default, handler: {(action) -> Void in
@@ -137,7 +159,7 @@ extension AccountListTableViewController {
         }))
         
         actionSheet.addAction(UIAlertAction(title: "Organization", style: .default, handler: {(action) -> Void in
-            self.performSegue(withIdentifier: "addGroupAccountVC", sender: self)
+            self.performSegue(withIdentifier: "addOrganizationAccountVC", sender: self)
         }))
         
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -154,11 +176,11 @@ extension AccountListTableViewController: UISearchResultsUpdating, UISearchBarDe
         let searchText = searchController.searchBar.text ?? ""
         
         if !searchText.isEmpty {
-            filteredAccounts = accounts.filter({account in
-                return account.contact.name.lowercased().contains(searchText.lowercased())
+            filteredAccounts = filteredAccounts.filter({account in
+                return account.name.lowercased().contains(searchText.lowercased())
             })
         } else {
-            filteredAccounts = accounts.sorted(by: {$0.contact.name < $1.contact.name})
+            filteredAccounts = sortedAccounts(by: .name)
         }
         
         tableView.reloadData()
@@ -167,14 +189,15 @@ extension AccountListTableViewController: UISearchResultsUpdating, UISearchBarDe
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         switch selectedScope {
         case 0:
-            filteredAccounts = filteredAccounts.sorted(by: {$0.contact.name < $1.contact.name})
+            filteredAccounts = sortedAccounts(by: .name)
         case 2:
-            filteredAccounts = filteredAccounts.sorted(by: {(account1, account2) in
-                let account1Progress = account1.annualSales.0 / account1.annualSales.1
-                let account2Progress = account2.annualSales.0 / account2.annualSales.1
-            
-                return account1Progress > account2Progress
-            })
+//            filteredAccounts = filteredAccounts.sorted(by: {(account1, account2) in
+//                let account1Progress = account1.annualSales.0 / account1.annualSales.1
+//                let account2Progress = account2.annualSales.0 / account2.annualSales.1
+//
+//                return account1Progress > account2Progress
+//            })
+            break
         default:
             break
         }
@@ -186,24 +209,34 @@ extension AccountListTableViewController: UISearchResultsUpdating, UISearchBarDe
 
 extension AccountListTableViewController: ReceivesAccountDataDelegate {
     
-    func receive(account: Account) {
+    func receive(account: BaseAccount) {
         filteredAccounts.append(account)
         
         tableView.beginUpdates()
         tableView.insertRows(at: [IndexPath(row: filteredAccounts.count-1, section: 0)], with: .none)
         tableView.endUpdates()
+        
+        // TODO: Should this be put in a didSet?
+        filteredAccounts = sortedAccounts(by: .name)
+        tableView.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "addIndividualAccountVC" {
-            if let vc = segue.destination as? AddAccountViewController {
-                vc.delegate = self
-            }
+        guard let vc = segue.destination as? AddAccountViewController else {return}
+        
+        vc.delegate = self
+        
+        switch segue.identifier {
+        case "addIndividualAccountVC":
+            vc.accountType = .individual
+        case "addOrganizationAccountVC":
+            vc.accountType = .organization
+        default: break // TODO: This should probably throw an error
         }
     }
     
 }
 
 protocol ReceivesAccountDataDelegate: class {
-    func receive(account: Account)
+    func receive(account: BaseAccount)
 }

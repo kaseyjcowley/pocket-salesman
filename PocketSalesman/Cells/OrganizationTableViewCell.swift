@@ -8,12 +8,12 @@
 
 import UIKit
 
-class GroupAccountTableViewCell: UITableViewCell {
+class OrganizationTableViewCell: UITableViewCell {
 
     @IBOutlet weak var avatar: UIImageView?
     @IBOutlet weak var customerName: UILabel?
     @IBOutlet weak var disclosureIndicator: UIImageView?
-    @IBOutlet weak var groupCountBadge: UILabel?
+    @IBOutlet weak var totalAccountsBadge: UILabel?
     
     static let rowHeight: CGFloat = 96
     

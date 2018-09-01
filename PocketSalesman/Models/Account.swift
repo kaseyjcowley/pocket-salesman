@@ -10,14 +10,19 @@ import Foundation
 
 enum AccountType: String {
     case individual
-    case group
+    case organization
     
     func toString() -> String {
         return self.rawValue
     }
 }
 
-class Account {
+enum SortableCriteria: String {
+    case name
+    case salesVolume
+}
+
+struct Account: BaseAccount {
     var avatar: Data?
     var name: String
     var notes: String?
@@ -74,5 +79,37 @@ class Account {
         self.notes = notes
         self.monthlySales = monthlySales
         self.annualSales = annualSales
+    }
+    
+    init(_ values: [String:Any?]) {
+        let contact = Contact(
+            values: Account.filter(values, forTagType: .contact)
+        )
+        
+        let supervisor = Supervisor(
+            values: Account.filter(values, forTagType: .supervisor)
+        )
+
+        self.init(
+            avatar: values["avatar"] as? Data,
+            name: values["account.name"] as! String,
+            contact: contact,
+            supervisor: supervisor,
+            notes: values["misc.notes"] as! String,
+            monthlySales: (0, values["misc.monthlyGoal"] as! Double),
+            annualSales: (0, values["misc.annualGoal"] as! Double)
+        )
+    }
+    
+    static func filter(_ values: [String:Any?], forTagType tagType: FormTags.TagType) -> [String:String] {
+        var newValues: [String:String] = [String:String]()
+        
+        for (key, value) in values {
+            if key.starts(with: tagType.rawValue) {
+                newValues[key.replacingOccurrences(of: "\(tagType).", with: "")] = value as? String
+            }
+        }
+        
+        return newValues
     }
 }

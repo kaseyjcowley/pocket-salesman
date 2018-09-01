@@ -12,16 +12,19 @@
 		23007EE520D2143C00918E65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23007EE420D2143C00918E65 /* Assets.xcassets */; };
 		23007EE820D2143C00918E65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23007EE620D2143C00918E65 /* LaunchScreen.storyboard */; };
 		23007EF220D21F7A00918E65 /* AccountListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23007EF120D21F7A00918E65 /* AccountListTableViewController.swift */; };
-		23007EF420D250B500918E65 /* IndividualAccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23007EF320D250B500918E65 /* IndividualAccountTableViewCell.swift */; };
+		23007EF420D250B500918E65 /* IndividualTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23007EF320D250B500918E65 /* IndividualTableViewCell.swift */; };
 		23007EF620D345C900918E65 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23007EF520D345C900918E65 /* Account.swift */; };
-		232A634B210B5CCF00EDDDF0 /* AccountFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232A634A210B5CCF00EDDDF0 /* AccountFormViewController.swift */; };
+		232A634B210B5CCF00EDDDF0 /* IndividualAccountFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232A634A210B5CCF00EDDDF0 /* IndividualAccountFormViewController.swift */; };
 		23415CDA21043576009147ED /* AddAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23415CD921043576009147ED /* AddAccountViewController.swift */; };
 		23514E7C20F6BE86009102C2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23514E7B20F6BE86009102C2 /* Extensions.swift */; };
 		235F0641210E1D8A009EDDD5 /* FloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F0640210E1D8A009EDDD5 /* FloatingLabelTextField.swift */; };
+		23965C8A213A0008007BD3A9 /* BaseAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23965C89213A0008007BD3A9 /* BaseAccount.swift */; };
 		23D2D63920F1891600E8476F /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D2D63820F1891600E8476F /* CircularProgressView.swift */; };
 		23D2FBD22131034C00593B50 /* EmailCompletionSuggestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D2FBD12131034C00593B50 /* EmailCompletionSuggestionsView.swift */; };
 		23D2FBD621325D8F00593B50 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D2FBD521325D8F00593B50 /* Formatters.swift */; };
-		23E6871520EDCD2300F8C9A9 /* GroupAccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E6871420EDCD2300F8C9A9 /* GroupAccountTableViewCell.swift */; };
+		23D2FBD82136459C00593B50 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D2FBD72136459C00593B50 /* Organization.swift */; };
+		23D2FBDB21370B9A00593B50 /* OrganizationAccountFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D2FBDA21370B9A00593B50 /* OrganizationAccountFormViewController.swift */; };
+		23E6871520EDCD2300F8C9A9 /* OrganizationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E6871420EDCD2300F8C9A9 /* OrganizationTableViewCell.swift */; };
 		DCA84F9024083432DF0EFD5E /* Pods_PocketSalesman.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1199CB55B8B5D774B2F1E889 /* Pods_PocketSalesman.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,16 +38,19 @@
 		23007EE720D2143C00918E65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		23007EE920D2143C00918E65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		23007EF120D21F7A00918E65 /* AccountListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListTableViewController.swift; sourceTree = "<group>"; };
-		23007EF320D250B500918E65 /* IndividualAccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualAccountTableViewCell.swift; sourceTree = "<group>"; };
+		23007EF320D250B500918E65 /* IndividualTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualTableViewCell.swift; sourceTree = "<group>"; };
 		23007EF520D345C900918E65 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
-		232A634A210B5CCF00EDDDF0 /* AccountFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountFormViewController.swift; sourceTree = "<group>"; };
+		232A634A210B5CCF00EDDDF0 /* IndividualAccountFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualAccountFormViewController.swift; sourceTree = "<group>"; };
 		23415CD921043576009147ED /* AddAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountViewController.swift; sourceTree = "<group>"; };
 		23514E7B20F6BE86009102C2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		235F0640210E1D8A009EDDD5 /* FloatingLabelTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingLabelTextField.swift; sourceTree = "<group>"; };
+		23965C89213A0008007BD3A9 /* BaseAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAccount.swift; sourceTree = "<group>"; };
 		23D2D63820F1891600E8476F /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		23D2FBD12131034C00593B50 /* EmailCompletionSuggestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailCompletionSuggestionsView.swift; sourceTree = "<group>"; };
 		23D2FBD521325D8F00593B50 /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
-		23E6871420EDCD2300F8C9A9 /* GroupAccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupAccountTableViewCell.swift; sourceTree = "<group>"; };
+		23D2FBD72136459C00593B50 /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
+		23D2FBDA21370B9A00593B50 /* OrganizationAccountFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationAccountFormViewController.swift; sourceTree = "<group>"; };
+		23E6871420EDCD2300F8C9A9 /* OrganizationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationTableViewCell.swift; sourceTree = "<group>"; };
 		8C03214F3E07132CC83CFDDE /* Pods-PocketSalesman.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketSalesman.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PocketSalesman/Pods-PocketSalesman.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,11 +87,10 @@
 		23007EDC20D2143C00918E65 /* PocketSalesman */ = {
 			isa = PBXGroup;
 			children = (
+				23D2FBD921364B2700593B50 /* Cells */,
 				23CA424B210B603D00CC27BF /* Controllers */,
 				235464B920FBD7F700DBD158 /* Models */,
 				235464BA20FBD82000DBD158 /* Supporting Files */,
-				23007EF320D250B500918E65 /* IndividualAccountTableViewCell.swift */,
-				23E6871420EDCD2300F8C9A9 /* GroupAccountTableViewCell.swift */,
 				23D2D63820F1891600E8476F /* CircularProgressView.swift */,
 				235F0640210E1D8A009EDDD5 /* FloatingLabelTextField.swift */,
 				23D2FBD12131034C00593B50 /* EmailCompletionSuggestionsView.swift */,
@@ -102,6 +107,8 @@
 			isa = PBXGroup;
 			children = (
 				23007EF520D345C900918E65 /* Account.swift */,
+				23D2FBD72136459C00593B50 /* Organization.swift */,
+				23965C89213A0008007BD3A9 /* BaseAccount.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -120,9 +127,19 @@
 			children = (
 				23007EF120D21F7A00918E65 /* AccountListTableViewController.swift */,
 				23415CD921043576009147ED /* AddAccountViewController.swift */,
-				232A634A210B5CCF00EDDDF0 /* AccountFormViewController.swift */,
+				232A634A210B5CCF00EDDDF0 /* IndividualAccountFormViewController.swift */,
+				23D2FBDA21370B9A00593B50 /* OrganizationAccountFormViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		23D2FBD921364B2700593B50 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				23007EF320D250B500918E65 /* IndividualTableViewCell.swift */,
+				23E6871420EDCD2300F8C9A9 /* OrganizationTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		4EB0A7B8C39C2491A81B6313 /* Pods */ = {
@@ -259,15 +276,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				232A634B210B5CCF00EDDDF0 /* AccountFormViewController.swift in Sources */,
+				232A634B210B5CCF00EDDDF0 /* IndividualAccountFormViewController.swift in Sources */,
+				23D2FBDB21370B9A00593B50 /* OrganizationAccountFormViewController.swift in Sources */,
 				23D2FBD621325D8F00593B50 /* Formatters.swift in Sources */,
+				23D2FBD82136459C00593B50 /* Organization.swift in Sources */,
 				23D2FBD22131034C00593B50 /* EmailCompletionSuggestionsView.swift in Sources */,
-				23007EF420D250B500918E65 /* IndividualAccountTableViewCell.swift in Sources */,
-				23E6871520EDCD2300F8C9A9 /* GroupAccountTableViewCell.swift in Sources */,
+				23007EF420D250B500918E65 /* IndividualTableViewCell.swift in Sources */,
+				23E6871520EDCD2300F8C9A9 /* OrganizationTableViewCell.swift in Sources */,
 				23007EF220D21F7A00918E65 /* AccountListTableViewController.swift in Sources */,
 				235F0641210E1D8A009EDDD5 /* FloatingLabelTextField.swift in Sources */,
 				23514E7C20F6BE86009102C2 /* Extensions.swift in Sources */,
 				23D2D63920F1891600E8476F /* CircularProgressView.swift in Sources */,
+				23965C8A213A0008007BD3A9 /* BaseAccount.swift in Sources */,
 				23007EDE20D2143C00918E65 /* AppDelegate.swift in Sources */,
 				23415CDA21043576009147ED /* AddAccountViewController.swift in Sources */,
 				23007EF620D345C900918E65 /* Account.swift in Sources */,

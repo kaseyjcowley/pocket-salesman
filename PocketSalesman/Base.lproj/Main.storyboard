@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="N2W-F3-Iac">
-    <device id="retina5_9" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -8,7 +8,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,11 +18,11 @@
             <objects>
                 <tableViewController id="jD5-61-5uk" customClass="AccountListTableViewController" customModule="PocketSalesman" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="cbD-8J-aXQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.89803921568627454" green="0.9137254901960784" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="IndividualAccountCell" rowHeight="250" id="ijD-DY-Pfc" customClass="IndividualAccountTableViewCell" customModule="PocketSalesman" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="IndividualAccountCell" rowHeight="250" id="ijD-DY-Pfc" customClass="IndividualTableViewCell" customModule="PocketSalesman" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="250"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ijD-DY-Pfc" id="B3v-en-eEQ">
@@ -41,7 +40,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Individual Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iLC-2c-QZo">
-                                                    <rect key="frame" x="80" y="7.9999999999999982" width="128" height="20.333333333333329"/>
+                                                    <rect key="frame" x="80" y="8" width="128" height="20.5"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -109,7 +108,7 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dY3-Hy-Zuk" customClass="CircularProgressView" customModule="PocketSalesman" customModuleProvider="target">
-                                                    <rect key="frame" x="209.66666666666666" y="68" width="74.999999999999972" height="75"/>
+                                                    <rect key="frame" x="209.5" y="68" width="75" height="75"/>
                                                     <color key="backgroundColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="75" id="114-nF-Kpg"/>
@@ -117,13 +116,13 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monthly Goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCt-fx-pP0">
-                                                    <rect key="frame" x="89.333333333333329" y="45.666666666666664" width="74.999999999999986" height="14.333333333333336"/>
+                                                    <rect key="frame" x="88.5" y="45.5" width="75" height="14.5"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U24-HK-yBL" customClass="CircularProgressView" customModule="PocketSalesman" customModuleProvider="target">
-                                                    <rect key="frame" x="88.666666666666671" y="68" width="75.000000000000014" height="75"/>
+                                                    <rect key="frame" x="88.5" y="68" width="75" height="75"/>
                                                     <color key="backgroundColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="75" id="CAf-mL-41J"/>
@@ -131,19 +130,19 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Annual Goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CSw-9w-7aY">
-                                                    <rect key="frame" x="213.33333333333334" y="46" width="68.000000000000028" height="14.333333333333336"/>
+                                                    <rect key="frame" x="213.5" y="46" width="68" height="14.5"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ldd-GG-pPL">
-                                                    <rect key="frame" x="107.33333333333333" y="151" width="37.333333333333329" height="20.333333333333343"/>
+                                                    <rect key="frame" x="107.5" y="151" width="37.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgN-Ne-v83">
-                                                    <rect key="frame" x="228.33333333333334" y="151" width="37.333333333333343" height="20.333333333333343"/>
+                                                    <rect key="frame" x="228.5" y="151" width="37.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -190,17 +189,17 @@
                                 </tableViewCellContentView>
                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="0.0" right="8"/>
                                 <connections>
+                                    <outlet property="accountName" destination="iLC-2c-QZo" id="8EO-C5-cU0"/>
                                     <outlet property="annualCircularProgressView" destination="dY3-Hy-Zuk" id="W9B-9g-uLF"/>
                                     <outlet property="annualProgressTotals" destination="hgN-Ne-v83" id="Rcd-Hb-NgQ"/>
                                     <outlet property="avatar" destination="dp8-LH-s9g" id="8IL-et-Zla"/>
-                                    <outlet property="customerName" destination="iLC-2c-QZo" id="8EO-C5-cU0"/>
                                     <outlet property="iconStackView" destination="whi-vF-CCK" id="vNe-zT-Nex"/>
                                     <outlet property="iconsContainer" destination="Kk9-wQ-Lhp" id="Ppq-Dh-Wgm"/>
                                     <outlet property="monthlyCircularProgressView" destination="U24-HK-yBL" id="2sH-QH-b5a"/>
                                     <outlet property="monthlyProgressTotals" destination="Ldd-GG-pPL" id="tTY-7W-o9L"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GroupAccountCell" rowHeight="96" id="2Bl-YL-YHx" customClass="GroupAccountTableViewCell" customModule="PocketSalesman" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="OrganizationAccountCell" rowHeight="96" id="2Bl-YL-YHx" customClass="OrganizationTableViewCell" customModule="PocketSalesman" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="278" width="375" height="96"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2Bl-YL-YHx" id="bpN-jP-Ubb">
@@ -218,7 +217,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x9J-UP-AIO">
-                                                    <rect key="frame" x="80" y="30" width="100.66666666666669" height="21"/>
+                                                    <rect key="frame" x="80" y="30" width="100.5" height="21"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -280,7 +279,7 @@
                                     <outlet property="avatar" destination="zJA-7F-Wxe" id="yh6-oY-HwA"/>
                                     <outlet property="customerName" destination="x9J-UP-AIO" id="zTX-iF-4uM"/>
                                     <outlet property="disclosureIndicator" destination="3tc-xm-1nN" id="86s-0R-34b"/>
-                                    <outlet property="groupCountBadge" destination="z5G-qG-igl" id="HEM-yb-Ef6"/>
+                                    <outlet property="totalAccountsBadge" destination="z5G-qG-igl" id="HEM-yb-Ef6"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -292,13 +291,13 @@
                     <navigationItem key="navigationItem" title="Accounts" id="ZJD-s1-vss">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="dnr-rf-eV5">
                             <connections>
-                                <action selector="addNewCustomer:" destination="jD5-61-5uk" id="XVK-dl-hlg"/>
+                                <action selector="addNewAccount:" destination="jD5-61-5uk" id="XVK-dl-hlg"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="vCb-cl-Tj9" kind="show" identifier="addIndividualAccountVC" id="fs6-is-eCe"/>
-                        <segue destination="8UK-uY-C7c" kind="show" identifier="addGroupAccountVC" id="Aon-u4-1rM"/>
+                        <segue destination="vCb-cl-Tj9" kind="show" identifier="addOrganizationAccountVC" id="Eb3-Eo-lfP"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uCm-Ux-Fwa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -310,7 +309,7 @@
             <objects>
                 <viewController id="Bsg-3U-RZ3" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mDk-DN-S9n">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Da Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdi-Ef-z9e">
@@ -334,7 +333,7 @@
             <objects>
                 <viewController id="biZ-iy-D24" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vLH-FP-W8z">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Da Steps" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9zj-f4-9LW">
@@ -358,7 +357,7 @@
             <objects>
                 <viewController id="BYj-SU-8Xs" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9Zz-1B-REV">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notifs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OtH-7g-FYN">
@@ -382,7 +381,7 @@
             <objects>
                 <viewController id="hBO-Y0-yAQ" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="x6C-jQ-u2k">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Events" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lou-nG-cfO">
@@ -401,43 +400,19 @@
             </objects>
             <point key="canvasLocation" x="3423" y="479"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="DaV-Bm-pw9">
-            <objects>
-                <viewController id="8UK-uY-C7c" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="cMs-9R-7Ku">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Adding a group account!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tlP-hC-Sfr">
-                                <rect key="frame" x="113" y="358" width="188" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="jb4-Nk-1V5"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="I9c-FV-hgB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1495" y="-867"/>
-        </scene>
         <!--Add Account-->
         <scene sceneID="9dV-dB-pPp">
             <objects>
                 <viewController title="Add Account" id="vCb-cl-Tj9" customClass="AddAccountViewController" customModule="PocketSalesman" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MAT-Pi-wzv">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Jp-lS-yFh">
-                                <rect key="frame" x="0.0" y="61" width="375" height="690"/>
+                                <rect key="frame" x="0.0" y="27" width="375" height="613"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jIY-gx-oYT">
-                                        <rect key="frame" x="154" y="179" width="67" height="29"/>
+                                        <rect key="frame" x="154" y="189" width="67" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <state key="normal" title="Edit Photo"/>
                                         <connections>
@@ -445,13 +420,10 @@
                                         </connections>
                                     </button>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eFv-7G-SfM">
-                                        <rect key="frame" x="0.0" y="224" width="375" height="466"/>
-                                        <connections>
-                                            <segue destination="A9e-oD-dGV" kind="embed" id="FDB-na-AhW"/>
-                                        </connections>
+                                        <rect key="frame" x="0.0" y="234" width="375" height="379"/>
                                     </containerView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Avatar" translatesAutoresizingMaskIntoConstraints="NO" id="Vjt-XO-mfg">
-                                        <rect key="frame" x="123" y="43" width="128" height="128"/>
+                                        <rect key="frame" x="123" y="53" width="128" height="128"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="128" id="oWA-Hp-Q5X"/>
                                             <constraint firstAttribute="height" constant="128" id="vZ8-uA-Eg4"/>
@@ -486,21 +458,15 @@
                         <viewLayoutGuide key="safeArea" id="lNE-h8-Duq"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Account" id="WvT-h5-qt1">
-                        <rightBarButtonItems>
-                            <barButtonItem title="Save" id="ZXb-DS-MiW">
-                                <connections>
-                                    <action selector="saveAccount:" destination="vCb-cl-Tj9" id="bZ7-a1-iZS"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem systemItem="organize" id="pm7-29-NpW">
-                                <connections>
-                                    <action selector="importContact:" destination="vCb-cl-Tj9" id="86K-Xe-S45"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="ZXb-DS-MiW">
+                            <connections>
+                                <action selector="saveAccount:" destination="vCb-cl-Tj9" id="bZ7-a1-iZS"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="avatar" destination="Vjt-XO-mfg" id="qxj-a9-8s4"/>
+                        <outlet property="contentView" destination="eFv-7G-SfM" id="iSJ-YT-JEY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FZ8-0d-Kz9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -513,7 +479,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="N2W-F3-Iac" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZBm-c8-ApP">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -524,21 +490,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gjI-GG-FSc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-36" y="120"/>
-        </scene>
-        <!--Account Form View Controller-->
-        <scene sceneID="MOy-zR-P41">
-            <objects>
-                <viewController id="A9e-oD-dGV" customClass="AccountFormViewController" customModule="PocketSalesman" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ufz-VF-6ON">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="466"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="wXa-tc-ciI"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eLe-AM-G7c" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2180" y="-96"/>
         </scene>
     </scenes>
     <resources>
@@ -2435,4 +2386,7 @@ AAAAQQAAAAAAAAAAAAAAAAABuPg
 </mutableData>
         </image>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Eb3-Eo-lfP"/>
+    </inferredMetricsTieBreakers>
 </document>

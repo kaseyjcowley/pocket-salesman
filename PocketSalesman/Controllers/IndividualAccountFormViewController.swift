@@ -46,7 +46,7 @@ struct FormTags {
     }
 }
 
-class AccountFormViewController: FormViewController {
+class IndividualAccountFormViewController: FormViewController, HasForm {
     
     lazy var emailCompletionSuggestionsView = EmailCompletionSuggestionsView(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: self.navigationAccessoryView.bounds.size))
     
@@ -79,13 +79,6 @@ class AccountFormViewController: FormViewController {
             row.useFormatterDuringInput = true
             row.formatter = PhoneNumberFormatter()
         }
-    }
-    
-    // MARK: Public API
-    public func formValues(forTagType tagType: FormTags.TagType) -> [String:Any?] {
-        return form.values()
-            .filter({$0.key.starts(with: tagType.rawValue)})
-            .map(transform: {($0.replacingOccurrences(of: "\(tagType.rawValue).", with: ""), $1)})
     }
     
     // MARK: Sections
@@ -270,3 +263,10 @@ class AccountFormViewController: FormViewController {
     }
 
 }
+
+// MARK: Public API
+//public func formValues(forTagType tagType: FormTags.TagType) -> [String:Any?] {
+//    return form.values()
+//        .filter({$0.key.starts(with: tagType.rawValue)})
+//        .map(transform: {($0.replacingOccurrences(of: "\(tagType.rawValue).", with: ""), $1)})
+//}

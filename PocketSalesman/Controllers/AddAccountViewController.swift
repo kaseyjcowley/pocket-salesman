@@ -9,62 +9,72 @@
 import UIKit
 import SwiftIcons
 import ContactsUI
+import Eureka
 
 class AddAccountViewController: UIViewController {
 
     @IBOutlet weak var avatar: UIImageView?
+    @IBOutlet weak var contentView: UIView?
     
-    let imagePickerController = UIImagePickerController()
+    var accountType: AccountType? {
+        didSet {
+            if accountType == .individual {
+                activeViewController = IndividualAccountFormViewController()
+                addImportContactBarButton()
+            } else if accountType == .organization {
+                activeViewController = OrganizationAccountFormViewController()
+                navigationItem.title = "Add Organization"
+            }
+        }
+    }
     
     weak var delegate: ReceivesAccountDataDelegate?
+    
+    private let imagePickerController = UIImagePickerController()
+    private var activeViewController: UIViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         imagePickerController.delegate = self
         avatar?.contentMode = .scaleAspectFill
+        
+        updateActiveViewController()
     }
     
     @IBAction func saveAccount(_ sender: Any) {
-        guard let accountFormVC = getAccountFormViewController() else {return}
-        guard accountFormVC.form.validate().count == 0 else {return} // Show something useful?
-
-        let accountValues = accountFormVC.formValues(forTagType: .account)
-        let miscValues = accountFormVC.formValues(forTagType: .misc)
-        
-        var contactValues = [String:String]()
-        for (key, value) in accountFormVC.formValues(forTagType: .contact) {
-            contactValues[key] = value as? String
+        guard
+            let activeVC = activeViewController as? HasForm,
+            activeVC.form.validate().count == 0
+        else {
+            return
         }
         
-        var supervisorValues = [String:String]()
-        for (key, value) in accountFormVC.formValues(forTagType: .contact) {
-            supervisorValues[key] = value as? String
-        }
+        var values = activeVC.form.values()
         
-        let contact = Account.Contact(values: contactValues)
-        let supervisor = Account.Supervisor(values: supervisorValues)
-        
-        let avatarImageData: Data? = avatar?.image !== nil
+        values["avatar"] = avatar?.image != nil
             ? UIImagePNGRepresentation((avatar?.image)!)
             : nil
         
-        let account = Account(
-            avatar: avatarImageData,
-            name: accountValues["name"] as! String,
-            contact: contact,
-            supervisor: supervisor,
-            notes: miscValues["notes"] as! String,
-            monthlySales: (0, miscValues["monthlyGoal"] as! Double),
-            annualSales: (0, miscValues["annualGoal"] as! Double)
-        )
-        
+        let account: BaseAccount = accountType == .individual
+            ? Account(values)
+            : Organization(values: values)
+
         delegate?.receive(account: account)
         navigationController?.popViewController(animated: true)
     }
     
-    func getAccountFormViewController() -> AccountFormViewController? {
-        return childViewControllers.first as? AccountFormViewController
+    func getAccountFormViewController() -> IndividualAccountFormViewController? {
+        return childViewControllers.first as? IndividualAccountFormViewController
+    }
+    
+    private func updateActiveViewController() {
+        if let activeVC = activeViewController {
+            addChildViewController(activeVC)
+            activeVC.view.frame = contentView!.bounds
+            contentView?.addSubview(activeVC.view)
+            activeVC.didMove(toParentViewController: self)
+        }
     }
     
 }
@@ -120,12 +130,6 @@ extension AddAccountViewController: UIImagePickerControllerDelegate, UINavigatio
 // Handle importing a contact
 extension AddAccountViewController: CNContactPickerDelegate {
     
-    @IBAction func importContact(_ sender: Any) {
-        let contactPicker = CNContactPickerViewController()
-        contactPicker.delegate = self
-        present(contactPicker, animated: true, completion: nil)
-    }
-    
     func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
         guard let accountFormVC = getAccountFormViewController() else {return}
         
@@ -152,4 +156,20 @@ extension AddAccountViewController: CNContactPickerDelegate {
         accountFormVC.tableView.reloadData()
     }
     
+    private func addImportContactBarButton() {
+        let importIcon = UIImage.init(icon: .dripicon(.download), size: CGSize(width: 30, height: 30))
+        let importIconButton = UIBarButtonItem(image: importIcon, style: .plain, target: self, action: #selector(importContact(_:)))
+        navigationItem.rightBarButtonItems?.append(importIconButton)
+    }
+    
+    @objc private func importContact(_ sender: Any) {
+        let contactPicker = CNContactPickerViewController()
+        contactPicker.delegate = self
+        present(contactPicker, animated: true, completion: nil)
+    }
+    
+}
+
+protocol HasForm {
+    var form: Form { get }
 }
